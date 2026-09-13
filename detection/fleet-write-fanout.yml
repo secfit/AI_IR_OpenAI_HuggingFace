@@ -1,0 +1,37 @@
+# ASCB-1 / Control C4: Fleet-level behavioral circuit breaker
+# Sigma-style detection rule sketch (illustrative, not vendor-validated).
+#
+# Detects: many distinct, nominally-unrelated job/agent IDs writing into
+# the same shared cache/registry path within a short time window — the
+# specific observable signature of "message board" formation as seen in
+# the incident (Artifactory writes from ~1,200 supposedly-isolated agents).
+
+title: Fleet-Level Shared-Namespace Write Fanout (ASCB1-C4)
+id: ascb1-c4-write-fanout
+status: experimental
+description: >
+  Flags when the count of distinct job/agent identities writing to a single
+  shared storage path (e.g. a package-registry cache directory) within a
+  rolling window exceeds a baseline threshold, indicating possible emergent
+  inter-agent coordination via shared infrastructure (see MITRE ATLAS
+  proposed technique "Emergent Inter-Agent Coordination Channel").
+references:
+  - ../ascb-1-controls.md
+logsource:
+  product: artifact_registry
+  category: object_write
+detection:
+  selection:
+    action: write
+  timeframe: 15m
+  condition: >
+    selection | count(distinct subject.job_id) by request.path_prefix > 5
+    AND request.path_prefix NOT IN known_per_job_namespace_prefixes
+level: high
+falsepositives:
+  - Legitimate shared build-cache or dependency-mirror paths that are
+    intentionally multi-tenant; must be explicitly allow-listed in
+    known_per_job_namespace_prefixes.
+tags:
+  - ascb1.c4
+  - atlas.emergent_inter_agent_coordination_channel_proposed
