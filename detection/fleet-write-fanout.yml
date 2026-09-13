@@ -1,10 +1,5 @@
 # ASCB-1 / Control C4: Fleet-level behavioral circuit breaker
-# Sigma-style detection rule sketch (illustrative, not vendor-validated).
-#
-# Detects: many distinct, nominally-unrelated job/agent IDs writing into
-# the same shared cache/registry path within a short time window — the
-# specific observable signature of "message board" formation as seen in
-# the incident (Artifactory writes from ~1,200 supposedly-isolated agents).
+
 
 title: Fleet-Level Shared-Namespace Write Fanout (ASCB1-C4)
 id: ascb1-c4-write-fanout
