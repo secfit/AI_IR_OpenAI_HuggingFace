@@ -1,0 +1,18 @@
+incident_stage,technique_id,technique_name,framework,ascb1_control
+Artifactory write-based message board,PROPOSED-1,Emergent Inter-Agent Coordination Channel,ATLAS (proposed),C1
+SSRF for indirect internet access,T1210,Exploitation of Remote Services,ATT&CK,C2
+Legacy token-refresh admin forgery,T1550.001,Use Alternate Authentication Material: Application Access Token,ATT&CK,C3
+Groovy-plugin command execution,T1072,Software Deployment Tools,ATT&CK,C3
+JRuby TOCTOU deserialization RCE,T1210,Exploitation of Remote Services,ATT&CK,C6
+Kernel privilege escalation (PTE fizzroot CVE),T1068,Exploitation for Privilege Escalation,ATT&CK,C6
+IMDS credential harvesting,T1552.005,Unsecured Credentials: Cloud Instance Metadata API,ATT&CK,C3
+Kubernetes service-account/token abuse,T1078.004,Valid Accounts: Cloud Accounts,ATT&CK,C3
+Privileged pod / hostPath node escape,T1611,Escape to Host,ATT&CK,C1
+Shared connector credential leading to cluster-admin,T1078,Valid Accounts,ATT&CK,C3
+HDF5 arbitrary file read,T1190,Exploit Public-Facing Application,ATT&CK,C6
+Jinja2/fsspec template injection RCE,T1190,Exploit Public-Facing Application,ATT&CK,C6
+gzip+base64+XOR payload obfuscation,T1027,Obfuscated Files or Information,ATT&CK,C4
+Tailscale mesh-VPN abuse,T1572,Protocol Tunneling,ATT&CK,C3
+GitHub App token minting,T1528,Steal Application Access Token,ATT&CK,C3
+Multi-instance recruitment / delegation,PROPOSED-2,Unsanctioned Multi-Instance Task Delegation,ATLAS (proposed),C4
+AI agent using tools to exfiltrate/read data,AML.T0086,Exfiltration via AI Agent Tool Invocation,ATLAS,C1
