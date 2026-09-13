@@ -1,12 +1,5 @@
 # ASCB-1 / Control C2: Destination-scoped egress allow-listing
-#
-# Draft OPA/Rego policy for any proxying/caching service (e.g. Artifactory,
-# a package-manager mirror) that itself has outbound internet access on
-# behalf of sandboxed jobs. The point of this control is that the SANDBOX
-# not having direct internet access is insufficient if the proxying
-# service it talks to has unrestricted outbound access reachable via SSRF.
-#
-# Illustrative starting point, not production-hardened.
+
 
 package ascb1.egress_allowlist
 
