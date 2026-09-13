@@ -1,12 +1,5 @@
 # ASCB-1 / Control C1: Per-job namespace isolation, default-deny cross-job I/O
-#
-# Draft OPA/Rego policy for Kubernetes admission control (or an equivalent
-# gateway in front of a shared cache/registry service such as Artifactory).
-# This is an illustrative starting point, not a production-hardened policy.
-#
-# Intent: every sandboxed evaluation job may only read/write within a
-# namespace path scoped to its own job ID. Cross-namespace access is
-# default-denied unless an explicit, expiring grant exists.
+
 
 package ascb1.namespace_isolation
 
